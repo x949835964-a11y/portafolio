@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<!--
+  =====================================================================
+  PORTAFOLIO PERSONAL — index.html
+  ---------------------------------------------------------------------
+  Estructura semántica HTML5 lista para GitHub Pages.
+  ✏️  Busca el texto "EDITA" para encontrar rápido todo lo que debes
+      personalizar (nombre, textos, enlaces, proyectos, etc.).
+  Todas las rutas son RELATIVAS (style.css, script.js, assets/...) para
+  que funcionen tanto en local como en https://usuario.github.io/repo/
+  =====================================================================
+-->
+<html lang="es">
+<head>
+  <!-- ===== Metadatos básicos ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===== SEO ===== (EDITA) -->
+  <title>Alex Romero | Desarrollador Web y de Sistemas</title>
+  <meta name="description" content="Portafolio de Alex Romero, desarrollador web y de sistemas. Proyectos en JavaScript, Python y bases de datos: aplicaciones web, sistemas de gestión y automatización.">
+  <meta name="keywords" content="desarrollador web, programador, portafolio, sistemas, JavaScript, Python, frontend, backend">
+  <meta name="author" content="Alex Romero">
+  <meta name="robots" content="index, follow">
+  <!-- EDITA: cambia por la URL final de tu GitHub Pages -->
+  <link rel="canonical" href="https://TU-USUARIO.github.io/TU-REPOSITORIO/">
+
+  <!-- Color de la barra del navegador en móviles (claro / oscuro) -->
+  <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b0f19" media="(prefers-color-scheme: dark)">
+
+  <!-- ===== Open Graph (vista previa al compartir en redes) ===== (EDITA) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Alex Romero | Desarrollador Web y de Sistemas">
+  <meta property="og:description" content="Construyo aplicaciones web rápidas, sistemas robustos y automatizaciones que ahorran tiempo.">
+  <meta property="og:url" content="https://TU-USUARIO.github.io/TU-REPOSITORIO/">
+  <!-- Opcional: añade una imagen 1200x630 en assets/img/og-image.png -->
+  <!-- <meta property="og:image" content="https://TU-USUARIO.github.io/TU-REPOSITORIO/assets/img/og-image.png"> -->
+
+  <!-- ===== Twitter / X Card ===== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Alex Romero | Desarrollador Web y de Sistemas">
+  <meta name="twitter:description" content="Aplicaciones web, sistemas y automatización.">
+
+  <!-- ===== Favicon (ruta relativa) ===== -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- ===== Tipografías (Google Fonts) ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- ===== Iconos (Font Awesome por CDN) ===== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
+
+  <!-- ===== Hoja de estilos propia ===== -->
+  <link rel="stylesheet" href="style.css">
+
+  <!--
+    Script mínimo en línea: aplica el tema (claro/oscuro) ANTES de pintar
+    la página para evitar el "parpadeo" de color. También marca <html>
+    con la clase "js" para activar animaciones solo si hay JavaScript.
+  -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      var saved = null;
+      try { saved = localStorage.getItem('theme'); } catch (e) {}
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    })();
+  </script>
+
+  <!-- ===== Datos estructurados (ayuda a Google a entender quién eres) ===== (EDITA) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Alex Romero",
+    "jobTitle": "Desarrollador Web y de Sistemas",
+    "url": "https://TU-USUARIO.github.io/TU-REPOSITORIO/",
+    "sameAs": [
+      "https://github.com/TU-USUARIO",
+      "https://www.linkedin.com/in/TU-USUARIO"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Enlace de accesibilidad: permite saltar el menú con el teclado -->
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- =================================================================
+       CABECERA / NAVEGACIÓN
+       ================================================================= -->
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="Navegación principal">
+      <!-- Logo (EDITA tus iniciales/nombre) -->
+      <a href="#inicio" class="nav__logo" aria-label="Ir al inicio">
+        <span class="nav__logo-mark">AR</span>
+        <span class="nav__logo-text">Alex<span class="text-gradient">.dev</span></span>
+      </a>
+
+      <!-- Menú de enlaces (en móvil se convierte en panel desplegable) -->
+      <ul class="nav__menu" id="nav-menu">
+        <li><a href="#inicio" class="nav__link is-active">Inicio</a></li>
+        <li><a href="#sobre-mi" class="nav__link">Sobre mí</a></li>
+        <li><a href="#servicios" class="nav__link">Servicios</a></li>
+        <li><a href="#proyectos" class="nav__link">Proyectos</a></li>
+        <li><a href="#contacto" class="nav__link">Contacto</a></li>
+      </ul>
+
+      <!-- Acciones: cambio de tema + botón hamburguesa -->
+      <div class="nav__actions">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Cambiar a modo oscuro">
+          <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        </button>
+        <button class="nav__toggle" id="nav-toggle" type="button"
+                aria-label="Abrir menú" aria-controls="nav-menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+
+    <!-- =================================================================
+         HERO (cabecera principal)
+         ================================================================= -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <!-- Decoración de fondo (puramente visual) -->
+      <div class="hero__bg" aria-hidden="true">
+        <span class="blob blob--1"></span>
+        <span class="blob blob--2"></span>
+        <span class="hero__grid"></span>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <span class="badge reveal">
+            <span class="badge__dot"></span> Disponible para nuevos proyectos
+          </span>
+
+          <!-- EDITA: tu título principal -->
+          <h1 class="hero__title reveal" id="hero-title" style="--delay:.08s">
+            Hola, soy Alex.<br>
+            Creo <span class="text-gradient">software que resuelve problemas reales.</span>
+          </h1>
+
+          <!-- EDITA: subtítulo descriptivo -->
+          <p class="hero__subtitle reveal" style="--delay:.16s">
+            Desarrollador web y de sistemas. Diseño aplicaciones rápidas, accesibles y
+            fáciles de mantener: desde interfaces modernas hasta APIs, bases de datos
+            y automatizaciones.
+          </p>
+
+          <!-- Botones de llamada a la acción (CTA) -->
+          <div class="hero__cta reveal" style="--delay:.24s">
+            <a href="#proyectos" class="btn btn--primary">
+              Ver mis proyectos <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="#contacto" class="btn btn--ghost">
+              <i class="fa-regular fa-envelope" aria-hidden="true"></i> Contáctame
+            </a>
+          </div>
+
+          <!-- Cifras rápidas (EDITA) -->
+          <ul class="hero__stats reveal" style="--delay:.32s">
+            <li><strong>3+</strong><span>años programando</span></li>
+            <li><strong>20+</strong><span>proyectos terminados</span></li>
+            <li><strong>10+</strong><span>tecnologías</span></li>
+          </ul>
+        </div>
+
+        <!-- Ventana de código decorativa (no necesita imágenes) -->
+        <div class="hero__visual reveal" style="--delay:.2s" aria-hidden="true">
+          <div class="code-window">
+            <div class="code-window__bar">
+              <span class="dot dot--red"></span>
+              <span class="dot dot--yellow"></span>
+              <span class="dot dot--green"></span>
+              <span class="code-window__file">perfil.js</span>
+            </div>
+<pre class="code-window__body"><code><span class="tk-key">const</span> <span class="tk-var">dev</span> = {
+  nombre: <span class="tk-str">"Alex Romero"</span>,
+  rol: <span class="tk-str">"Full Stack Developer"</span>,
+  stack: [<span class="tk-str">"JS"</span>, <span class="tk-str">"Python"</span>, <span class="tk-str">"SQL"</span>],
+  disponible: <span class="tk-bool">true</span>,
+};
+
+<span class="tk-key">function</span> <span class="tk-fn">construir</span>(idea) {
+  <span class="tk-key">return</span> idea
+    .<span class="tk-fn">diseñar</span>()
+    .<span class="tk-fn">programar</span>()
+    .<span class="tk-fn">publicar</span>(); <span class="tk-com">// 🚀</span>
+}</code></pre>
+          </div>
+          <div class="floating-card floating-card--1">
+            <i class="fa-solid fa-gauge-high"></i> Rendimiento 98/100
+          </div>
+          <div class="floating-card floating-card--2">
+            <i class="fa-solid fa-mobile-screen"></i> 100% responsive
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         SOBRE MÍ
+         ================================================================= -->
+    <section class="section" id="sobre-mi" aria-labelledby="about-title">
+      <div class="container about">
+        <!--
+          Foto de perfil: por ahora se muestran tus iniciales.
+          Para usar una foto, guárdala en assets/img/perfil.jpg y reemplaza
+          el <span class="about__initials"> por:
+          <img src="assets/img/perfil.jpg" alt="Foto de Alex Romero" width="400" height="400" loading="lazy">
+        -->
+        <div class="about__media reveal">
+          <div class="about__photo">
+            <span class="about__initials">AR</span>
+          </div>
+          <div class="about__tag">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Lima, Perú · Remoto
+          </div>
+        </div>
+
+        <div class="about__content">
+          <header class="section-header section-header--left reveal">
+            <span class="eyebrow">Sobre mí</span>
+            <h2 class="section-title" id="about-title">Código limpio, ideas claras.</h2>
+          </header>
+
+          <!-- EDITA: tu biografía -->
+          <p class="reveal" style="--delay:.08s">
+            Me apasiona transformar procesos complicados en herramientas simples. He trabajado
+            en sitios web, sistemas internos de gestión y scripts que automatizan tareas
+            repetitivas, siempre cuidando el rendimiento, la seguridad y la experiencia de uso.
+          </p>
+          <p class="reveal" style="--delay:.12s">
+            Disfruto aprender tecnologías nuevas, documentar bien lo que construyo y colaborar
+            con equipos que valoran el trabajo bien hecho.
+          </p>
+
+          <!-- Habilidades (EDITA) -->
+          <h3 class="about__subtitle reveal" style="--delay:.16s">Tecnologías que uso</h3>
+          <ul class="chips reveal" style="--delay:.2s">
+            <li class="chip"><i class="fa-brands fa-html5"></i> HTML5</li>
+            <li class="chip"><i class="fa-brands fa-css3-alt"></i> CSS3</li>
+            <li class="chip"><i class="fa-brands fa-js"></i> JavaScript</li>
+            <li class="chip"><i class="fa-brands fa-python"></i> Python</li>
+            <li class="chip"><i class="fa-brands fa-node-js"></i> Node.js</li>
+            <li class="chip"><i class="fa-solid fa-database"></i> SQL</li>
+            <li class="chip"><i class="fa-brands fa-git-alt"></i> Git</li>
+            <li class="chip"><i class="fa-brands fa-linux"></i> Linux</li>
+            <li class="chip"><i class="fa-brands fa-docker"></i> Docker</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         SERVICIOS / CARACTERÍSTICAS
+         ================================================================= -->
+    <section class="section section--alt" id="servicios" aria-labelledby="services-title">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="eyebrow">Servicios</span>
+          <h2 class="section-title" id="services-title">¿En qué puedo ayudarte?</h2>
+          <p class="section-subtitle">Soluciones completas, desde la idea hasta la puesta en producción.</p>
+        </header>
+
+        <div class="services">
+          <!-- Tarjeta de servicio (copia/pega para añadir más) -->
+          <article class="service-card reveal">
+            <div class="service-card__icon"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></div>
+            <h3>Desarrollo web</h3>
+            <p>Sitios y aplicaciones modernas, rápidas y adaptadas a cualquier pantalla.</p>
+          </article>
+
+          <article class="service-card reveal" style="--delay:.08s">
+            <div class="service-card__icon"><i class="fa-solid fa-server" aria-hidden="true"></i></div>
+            <h3>Sistemas y APIs</h3>
+            <p>Backends seguros, bases de datos bien diseñadas e integraciones entre servicios.</p>
+          </article>
+
+          <article class="service-card reveal" style="--delay:.16s">
+            <div class="service-card__icon"><i class="fa-solid fa-robot" aria-hidden="true"></i></div>
+            <h3>Automatización</h3>
+            <p>Scripts y bots que eliminan tareas manuales y generan reportes automáticamente.</p>
+          </article>
+
+          <article class="service-card reveal" style="--delay:.24s">
+            <div class="service-card__icon"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i></div>
+            <h3>Diseño UI/UX</h3>
+            <p>Interfaces claras y accesibles, pensadas para que el usuario llegue a su objetivo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         PROYECTOS DESTACADOS
+         ================================================================= -->
+    <section class="section" id="proyectos" aria-labelledby="projects-title">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="eyebrow">Portafolio</span>
+          <h2 class="section-title" id="projects-title">Proyectos destacados</h2>
+          <p class="section-subtitle">Una selección de trabajos recientes. Filtra por categoría.</p>
+        </header>
+
+        <!-- Filtros: el valor data-filter debe coincidir con data-category de las tarjetas -->
+        <div class="filters reveal" role="group" aria-label="Filtrar proyectos">
+          <button class="filter-btn is-active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+          <button class="filter-btn" type="button" data-filter="web" aria-pressed="false">Web</button>
+          <button class="filter-btn" type="button" data-filter="sistemas" aria-pressed="false">Sistemas</button>
+          <button class="filter-btn" type="button" data-filter="automatizacion" aria-pressed="false">Automatización</button>
+        </div>
+
+        <div class="projects" id="projects-grid">
+          <!--
+            PLANTILLA DE TARJETA DE PROYECTO (EDITA)
+            - data-category: una o varias categorías separadas por espacio.
+            - project-card__thumb--1 ... --6 cambian el degradado de fondo.
+            - Para usar una captura real, pon dentro del thumb:
+              <img src="assets/img/proyecto-1.jpg" alt="Captura del proyecto" loading="lazy">
+          -->
+          <article class="project-card reveal" data-category="sistemas">
+            <div class="project-card__thumb project-card__thumb--1">
+              <i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i>
+            </div>
+            <div class="project-card__body">
+              <span class="project-card__category">Sistemas</span>
+              <h3 class="project-card__title">Sistema de Inventario</h3>
+              <p class="project-card__desc">Control de stock, entradas/salidas y alertas de reposición para pequeños negocios.</p>
+              <ul class="tags">
+                <li>Python</li><li>Flask</li><li>MySQL</li>
+              </ul>
+              <div class="project-card__links">
+                <a href="https://github.com/TU-USUARIO" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> Código</a>
+                <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="web" style="--delay:.08s">
+            <div class="project-card__thumb project-card__thumb--2">
+              <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+            </div>
+            <div class="project-card__body">
+              <span class="project-card__category">Web</span>
+              <h3 class="project-card__title">Dashboard de Ventas</h3>
+              <p class="project-card__desc">Panel interactivo con gráficos en tiempo real, filtros por fecha y exportación a CSV.</p>
+              <ul class="tags">
+                <li>JavaScript</li><li>Chart.js</li><li>CSS Grid</li>
+              </ul>
+              <div class="project-card__links">
+                <a href="https://github.com/TU-USUARIO" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> Código</a>
+                <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="automatizacion" style="--delay:.16s">
+            <div class="project-card__thumb project-card__thumb--3">
+              <i class="fa-solid fa-robot" aria-hidden="true"></i>
+            </div>
+            <div class="project-card__body">
+              <span class="project-card__category">Automatización</span>
+              <h3 class="project-card__title">Bot de Reportes</h3>
+              <p class="project-card__desc">Genera y envía reportes semanales en Excel/PDF a partir de varias fuentes de datos.</p>
+              <ul class="tags">
+                <li>Python</li><li>Pandas</li><li>Cron</li>
+              </ul>
+              <div class="project-card__links">
+                <a href="https://github.com/TU-USUARIO" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> Código</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="web" style="--delay:.04s">
+            <div class="project-card__thumb project-card__thumb--4">
+              <i class="fa-solid fa-store" aria-hidden="true"></i>
+            </div>
+            <div class="project-card__body">
+              <span class="project-card__category">Web</span>
+              <h3 class="project-card__title">Landing para Emprendimiento</h3>
+              <p class="project-card__desc">Página de ventas optimizada para SEO y conversión, con formulario y WhatsApp integrado.</p>
+              <ul class="tags">
+                <li>HTML</li><li>CSS</li><li>SEO</li>
+              </ul>
+              <div class="project-card__links">
+                <a href="https://github.com/TU-USUARIO" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> Código</a>
+                <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="sistemas web" style="--delay:.12s">
+            <div class="project-card__thumb project-card__thumb--5">
+              <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+            </div>
+            <div class="project-card__body">
+              <span class="project-card__category">Sistemas · Web</span>
+              <h3 class="project-card__title">API de Reservas</h3>
+              <p class="project-card__desc">API REST con autenticación JWT para gestionar citas, horarios y notificaciones.</p>
+              <ul class="tags">
+                <li>Node.js</li><li>Express</li><li>PostgreSQL</li>
+              </ul>
+              <div class="project-card__links">
+                <a href="https://github.com/TU-USUARIO" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> Código</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="web automatizacion" style="--delay:.2s">
+            <div class="project-card__thumb project-card__thumb--6">
+              <i class="fa-solid fa-list-check" aria-hidden="true"></i>
+            </div>
+            <div class="project-card__body">
+              <span class="project-card__category">Web · Automatización</span>
+              <h3 class="project-card__title">App de Tareas (PWA)</h3>
+              <p class="project-card__desc">Gestor de tareas instalable que funciona sin conexión y sincroniza recordatorios.</p>
+              <ul class="tags">
+                <li>JavaScript</li><li>PWA</li><li>IndexedDB</li>
+              </ul>
+              <div class="project-card__links">
+                <a href="https://github.com/TU-USUARIO" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> Código</a>
+                <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Demo</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Mensaje si un filtro no tiene resultados -->
+        <p class="projects__empty" id="projects-empty" hidden>No hay proyectos en esta categoría todavía.</p>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         CONTACTO (CTA final)
+         ================================================================= -->
+    <section class="section" id="contacto" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact reveal">
+          <span class="eyebrow">Contacto</span>
+          <h2 class="section-title" id="contact-title">¿Tienes un proyecto en mente?</h2>
+          <p class="section-subtitle">Cuéntame tu idea y te respondo en menos de 24 horas.</p>
+          <div class="contact__actions">
+            <!-- EDITA: tu correo -->
+            <a href="mailto:tucorreo@ejemplo.com" class="btn btn--primary btn--lg">
+              <i class="fa-regular fa-paper-plane" aria-hidden="true"></i> Escríbeme un correo
+            </a>
+            <!-- EDITA: tu LinkedIn -->
+            <a href="https://www.linkedin.com/in/TU-USUARIO" class="btn btn--ghost btn--lg" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =================================================================
+       PIE DE PÁGINA
+       ================================================================= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#inicio" class="nav__logo">
+          <span class="nav__logo-mark">AR</span>
+          <span class="nav__logo-text">Alex<span class="text-gradient">.dev</span></span>
+        </a>
+        <p>Desarrollo web, sistemas y automatización.</p>
+      </div>
+
+      <nav class="footer__links" aria-label="Enlaces del pie de página">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <!-- Redes sociales (EDITA tus enlaces) -->
+      <ul class="socials">
+        <li><a href="https://github.com/TU-USUARIO" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/TU-USUARIO" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+        <li><a href="https://x.com/TU-USUARIO" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a></li>
+        <li><a href="mailto:tucorreo@ejemplo.com" aria-label="Correo electrónico"><i class="fa-regular fa-envelope"></i></a></li>
+      </ul>
+    </div>
+
+    <div class="container footer__bottom">
+      <!-- El año se actualiza solo con script.js -->
+      <p>&copy; <span id="year">2026</span> Alex Romero. Todos los derechos reservados.</p>
+      <p>Hecho con <i class="fa-solid fa-heart" aria-hidden="true"></i> y HTML, CSS y JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- Botón "volver arriba" -->
+  <a href="#inicio" class="back-to-top" id="back-to-top" aria-label="Volver arriba">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </a>
+
+  <!-- JavaScript propio (defer = se ejecuta cuando el HTML ya está listo) -->
+  <script src="script.js" defer></script>
+</body>
+</html>
